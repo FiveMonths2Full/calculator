@@ -108,7 +108,7 @@ container.appendChild(calcDisplay);
 
 const btnContainer = document.createElement("div");
 container.appendChild(btnContainer);
-
+//numbers
 btnContainer.appendChild(oneButton);
 btnContainer.appendChild(twoButton);
 btnContainer.appendChild(threeButton);
@@ -119,6 +119,12 @@ btnContainer.appendChild(sevenButton);
 btnContainer.appendChild(eightButton);
 btnContainer.appendChild(nineButton);
 btnContainer.appendChild(zeroButton);
+//operators
+btnContainer.appendChild(plusButton);
+btnContainer.appendChild(minusButton);
+btnContainer.appendChild(multiplyButton);
+btnContainer.appendChild(divideButton);
+//functions
 btnContainer.appendChild(clearButton);
 btnContainer.appendChild(delButton);
 btnContainer.appendChild(dotButton);
