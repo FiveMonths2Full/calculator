@@ -73,25 +73,25 @@ divideButton.textContent ="/";
 //clear button
 const clearButton = document.createElement("button");
 //class
-clearButton.classList.add ="btn", "clear";
+clearButton.classList.add("btn", "clear");
 //text
 clearButton.textContent = "C";
 //delete button
 const delButton = document.createElement("button");
 //class
-delButton.classList.add = "btn", "del";
+delButton.classList.add("btn", "del");
 //text
 delButton.textContent = "<";
 //dot Button
 const dotButton = document.createElement("button");
 //class
-dotButton.classList.add = "btn", "dot";
+dotButton.classList.add("btn", "dot");
 //text
 dotButton.textContent = ".";
 //equals button
 const equalsButton = document.createElement("button");
 //class
-equalsButton.classList.add ="btn", "equals";
+equalsButton.classList.add("btn", "equals");
 //text
 equalsButton.textContent = "=";
 
@@ -99,7 +99,7 @@ equalsButton.textContent = "=";
 //number display
 const calcDisplay = document.createElement("div");
 //class
-calcDisplay.classList.add ="calcDisplay"
+calcDisplay.classList.add("calcDisplay")
 //example text
 calcDisplay.textContent = "69";
 
@@ -122,7 +122,7 @@ btnContainer.appendChild(zeroButton);
 btnContainer.appendChild(clearButton);
 btnContainer.appendChild(delButton);
 btnContainer.appendChild(dotButton);
-btnContainer.appendChild(equalsButton);
+btnContainer.appendChild(equalsButton)
 
 
 
