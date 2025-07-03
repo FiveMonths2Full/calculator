@@ -93,17 +93,36 @@ const equalsButton = document.createElement("button");
 //class
 equalsButton.classList.add ="btn", "equals";
 //text
-equalsButton.textContent = "="
+equalsButton.textContent = "=";
+
+
 //number display
-const numDisplay = document.createElement("div");
+const calcDisplay = document.createElement("div");
 //class
-numDisplay.classList.add ="numDisplay"
+calcDisplay.classList.add ="calcDisplay"
 //example text
-numDisplay.textContent = "69";
+calcDisplay.textContent = "69";
 
 const container = document.querySelector(".calculator");
-container.appendChild(numDisplay);
+container.appendChild(calcDisplay);
 
+const btnContainer = document.createElement("div");
+container.appendChild(btnContainer);
+
+btnContainer.appendChild(oneButton);
+btnContainer.appendChild(twoButton);
+btnContainer.appendChild(threeButton);
+btnContainer.appendChild(fourButton);
+btnContainer.appendChild(fiveButton);
+btnContainer.appendChild(sixButton);
+btnContainer.appendChild(sevenButton);
+btnContainer.appendChild(eightButton);
+btnContainer.appendChild(nineButton);
+btnContainer.appendChild(zeroButton);
+btnContainer.appendChild(clearButton);
+btnContainer.appendChild(delButton);
+btnContainer.appendChild(dotButton);
+btnContainer.appendChild(equalsButton);
 
 
 
