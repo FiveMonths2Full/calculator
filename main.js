@@ -21,4 +21,27 @@ function operate(a,b,sign) {
             sign == "/"  ? divide(a,b) : "dont work";
     }
 console.log(operate(num1,num2,operator));
+//number buttons
+const oneButton = document.createElement("button");
+const twoButton = document.createElement("button");
+const threeButton =document.createElement("button");
+const fourButton =document.createElement("button");
+const fiveButton =document.createElement("button");
+const sixButton =document.createElement("button");
+const sevenButton =document.createElement("button");
+const eightButton =document.createElement("button");
+const nineButton =document.createElement("button");
+//operator buttons
+const plusButton = document.createElement("button");
+const minusButton = document.createElement("button");
+const multiplyButton = document.createElement("button");
+const divideButton = document.createElement("button");
+//clear button
+const clearButton = document.createElement("button");
+//delete button
+const delButton = document.createElement("button");
+//dot Button
+const dotButton = document.createElement("button");
+
+
 
