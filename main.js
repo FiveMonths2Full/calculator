@@ -10,7 +10,15 @@ function multiply (a,b) {
 function divide (a,b) {
     b !== 0 ? a/b : undefined;
 }
-console.log(add(4,0));
-console.log(subtract(4,0));
-console.log(multiply(4,0));
-console.log(divide(4,0));
+const num1 = 0;
+const num2 = 0;
+const operator = "+";
+
+function operate(a,b,sign) {
+    return  sign == "+"  ? add(a,b) :
+            sign == "-"  ? subtract(a,b) :
+            sign == "*"  ? multiply(a,b) :
+            sign == "/"  ? divide(a,b) : "dont work";
+    }
+console.log(operate(num1,num2,operator));
+
