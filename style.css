@@ -29,7 +29,7 @@
   justify-content: center;
 }
 .btn {
-  flex: 1 0 27%; /* grow, shrink, base width — around 4 per row */
+  flex: 1 0 20%; /* grow, shrink, base width — around 4 per row */
   padding: 1rem;
   font-size: 1.2rem;
   border: none;
@@ -41,6 +41,7 @@
   text-align: center;
 }
 
+
 .btn:hover {
   background-color: #444;
 }
@@ -48,10 +49,10 @@
 .num {
   background-color: #444;
 }
-
 .operator {
   background-color: #ff9500;
 }
+
 
 .equals {
   background-color: #34c759;

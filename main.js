@@ -106,29 +106,40 @@ calcDisplay.textContent = "69";
 const container = document.querySelector(".calculator");
 container.appendChild(calcDisplay);
 
-const btnContainer = document.createElement("div");
-container.appendChild(btnContainer);
+const numBtnContainer = document.createElement("div");
+numBtnContainer.classList.add("numBtnContainer");
+container.appendChild(numBtnContainer);
 //numbers
-btnContainer.appendChild(oneButton);
-btnContainer.appendChild(twoButton);
-btnContainer.appendChild(threeButton);
-btnContainer.appendChild(fourButton);
-btnContainer.appendChild(fiveButton);
-btnContainer.appendChild(sixButton);
-btnContainer.appendChild(sevenButton);
-btnContainer.appendChild(eightButton);
-btnContainer.appendChild(nineButton);
-btnContainer.appendChild(zeroButton);
+numBtnContainer.appendChild(oneButton);
+numBtnContainer.appendChild(twoButton);
+numBtnContainer.appendChild(threeButton);
+numBtnContainer.appendChild(fourButton);
+numBtnContainer.appendChild(fiveButton);
+numBtnContainer.appendChild(sixButton);
+numBtnContainer.appendChild(sevenButton);
+numBtnContainer.appendChild(eightButton);
+numBtnContainer.appendChild(nineButton);
+numBtnContainer.appendChild(dotButton);
+numBtnContainer.appendChild(zeroButton);
+//almost num buttons
+numBtnContainer.appendChild(delButton);
 //operators
-btnContainer.appendChild(plusButton);
-btnContainer.appendChild(minusButton);
-btnContainer.appendChild(multiplyButton);
-btnContainer.appendChild(divideButton);
+const operatorBtnContainer = document.createElement("div");
+operatorBtnContainer.classList.add("operatorBtnContainter");
+container.appendChild(operatorBtnContainer);
+
+operatorBtnContainer.appendChild(plusButton);
+operatorBtnContainer.appendChild(minusButton);
+operatorBtnContainer.appendChild(multiplyButton);
+operatorBtnContainer.appendChild(divideButton);
 //functions
-btnContainer.appendChild(clearButton);
-btnContainer.appendChild(delButton);
-btnContainer.appendChild(dotButton);
-btnContainer.appendChild(equalsButton)
+const funcBtnContainer = document.createElement("div");
+funcBtnContainer.classList.add("funcBtnContainer");
+container.appendChild(funcBtnContainer);
+
+funcBtnContainer.appendChild(clearButton);
+funcBtnContainer.appendChild(equalsButton);
+
 
 
 
