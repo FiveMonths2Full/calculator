@@ -32,57 +32,49 @@ const sevenButton =document.createElement("button");
 const eightButton =document.createElement("button");
 const nineButton =document.createElement("button");
 const zeroButton = document.createElement("button");
-//classes
+//- classes
 const numButtons = [zeroButton, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton];
 numButtons.forEach(button => button.classList.add("btn", "num"));
-//text
+//- text
 for (let i = 0; i < numButtons.length; i++) {
     numButtons[i].textContent = `${i}`;
 }
-
 //operator buttons
 const plusButton = document.createElement("button");
 const minusButton = document.createElement("button");
 const multiplyButton = document.createElement("button");
 const divideButton = document.createElement("button");
-
-//classes
-/*
-plusButton.classList.add("btn", "operator");
-minusButton.classList.add("btn", "operator");
-multiplyButton.classList.add("btn", "operator");
-divideButton.classList.add("btn", "operator");
-*/
+//- classes
 const operatorButtons = [plusButton, minusButton, multiplyButton, divideButton] 
 operatorButtons.forEach(button => button.classList.add("btn", "operator"));
-//text
+//- text
 plusButton.textContent ="+";
 minusButton.textContent ="-";
 multiplyButton.textContent ="x";
 divideButton.textContent ="/";
+
 //clear button
 const clearButton = document.createElement("button");
-//class
+//- class & text
 clearButton.classList.add("btn", "clear");
-//text
 clearButton.textContent = "C";
+
 //delete button
 const delButton = document.createElement("button");
-//class
+//- class & text
 delButton.classList.add("btn", "del");
-//text
 delButton.textContent = "<";
+
 //dot Button
 const dotButton = document.createElement("button");
-//class
+//- class & text
 dotButton.classList.add("btn", "dot");
-//text
 dotButton.textContent = ".";
+
 //equals button
 const equalsButton = document.createElement("button");
-//class
+//- class & text
 equalsButton.classList.add("btn", "equals");
-//text
 equalsButton.textContent = "=";
 
 
