@@ -1,69 +1,106 @@
+/* Main calculator wrapper */
 .calculator {
-  width: 300px;
-  margin: 100px auto;
-  padding: 1rem;
-  border-radius: 1rem;
-  background-color: #1e1e1e;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 320px;                            /* Set fixed width */
+  margin: 100px auto;                      /* Center it horizontally with margin */
+  padding: 1rem;                           /* Inner spacing */
+  background-color: #1e1e1e;               /* Dark background for calculator */
+  border-radius: 1rem;                     /* Rounded corners */
+  display: flex;                           /* Use flexbox */
+  flex-direction: column;                 /* Stack children vertically */
+  gap: 1rem;                               /* Space between child elements */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
 }
 
+/* Display area for numbers */
 .calcDisplay {
-  background-color: #222;
-  color: #0f0;
-  font-size: 2rem;
-  padding: 1rem;
-  text-align: right;
-  border-radius: 0.5rem;
-  min-height: 3rem;
-  font-family: 'Courier New', monospace;
-  transition: all 0.2s ease-in-out;
+  background-color: #222;                  /* Darker display background */
+  color: #0f0;                             /* Neon green text for a "retro" look */
+  font-size: 2rem;                         /* Large text */
+  padding: 1rem;                           /* Inner padding */
+  text-align: right;                       /* Align numbers to the right */
+  border-radius: 0.5rem;                   /* Rounded corners */
+  min-height: 3rem;                        /* Make sure it has enough height */
+  width: 100%;                             /* Stretch full width */
+  box-sizing: border-box;                 /* Include padding in width calculation */
 }
 
-.calculator > div {
+/* Clear and equals buttons on their own row */
+.funcBtnContainer {
+    display: flex;
+    flex-direction: row;
+}
+.clear, .equals {
+  width: 48%;                              /* Slightly less than half each to fit with margin */
+  padding: 1rem;                           /* Nice click target */
+  font-size: 1.2rem;                       /* Bigger font for importance */
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Container for all number and operator buttons */
+.mainBtnContainer {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.numBtnContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
+  flex: 3;
+  height: auto; /* let it define height naturally */
 }
+
+.operatorBtnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  height: 100%; /* Try to match height, fallback in next step */
+}
+
+
+
+/* General button style */
 .btn {
-  flex: 1 0 20%; /* grow, shrink, base width — around 4 per row */
-  padding: 1rem;
-  font-size: 1.2rem;
+  flex: 1 0 30%;                           /* Roughly 3 buttons per row */
+  padding: 1rem;                           /* Good click area */
+  font-size: 1.25rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  color: white;
-  background-color: #333;
-  transition: background-color 0.2s ease;
+  color: white; 
   text-align: center;
 }
 
-
-.btn:hover {
-  background-color: #444;
-}
-
+/* Color coding by type */
 .num {
   background-color: #444;
 }
+
 .operator {
   background-color: #ff9500;
 }
 
-
-.equals {
-  background-color: #34c759;
-  flex: 1 0 47%; /* span 2 slots */
+.clear {
+  background-color: #ff3b30;
 }
 
-.clear,
 .del {
   background-color: #ff3b30;
 }
 
 .dot {
   background-color: #666;
+}
+
+.equals {
+  background-color: #34c759;
+}
+
+.btn:hover {
+  filter: brightness(1.2);                /* Slight glow on hover */
 }

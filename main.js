@@ -108,7 +108,6 @@ container.appendChild(calcDisplay);
 
 const numBtnContainer = document.createElement("div");
 numBtnContainer.classList.add("numBtnContainer");
-container.appendChild(numBtnContainer);
 //numbers
 numBtnContainer.appendChild(oneButton);
 numBtnContainer.appendChild(twoButton);
@@ -119,26 +118,35 @@ numBtnContainer.appendChild(sixButton);
 numBtnContainer.appendChild(sevenButton);
 numBtnContainer.appendChild(eightButton);
 numBtnContainer.appendChild(nineButton);
+//
 numBtnContainer.appendChild(dotButton);
+//
 numBtnContainer.appendChild(zeroButton);
-//almost num buttons
+//
 numBtnContainer.appendChild(delButton);
 //operators
 const operatorBtnContainer = document.createElement("div");
-operatorBtnContainer.classList.add("operatorBtnContainter");
-container.appendChild(operatorBtnContainer);
+operatorBtnContainer.classList.add("operatorBtnContainer");
 
 operatorBtnContainer.appendChild(plusButton);
 operatorBtnContainer.appendChild(minusButton);
 operatorBtnContainer.appendChild(multiplyButton);
 operatorBtnContainer.appendChild(divideButton);
-//functions
+
 const funcBtnContainer = document.createElement("div");
 funcBtnContainer.classList.add("funcBtnContainer");
-container.appendChild(funcBtnContainer);
+funcBtnContainer.appendChild(clearButton)
+funcBtnContainer.appendChild(equalsButton)
 
-funcBtnContainer.appendChild(clearButton);
-funcBtnContainer.appendChild(equalsButton);
+const mainBtnContainer = document.createElement("div");
+mainBtnContainer.classList.add("mainBtnContainer");
+
+mainBtnContainer.appendChild(numBtnContainer);
+mainBtnContainer.appendChild(operatorBtnContainer);
+
+container.appendChild(funcBtnContainer);
+container.appendChild(mainBtnContainer);
+
 
 
 
