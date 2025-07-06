@@ -10,9 +10,10 @@ function multiply (a,b) {
 function divide (a,b) {
     b !== 0 ? a/b : undefined;
 }
-const num1 = 0;
-const num2 = 0;
-const operator = "+";
+
+let num1 = "";
+let num2 = "";
+let operator = "";
 
 function operate(a,b,sign) {
     return  sign == "+"  ? add(a,b) :
@@ -20,7 +21,6 @@ function operate(a,b,sign) {
             sign == "*"  ? multiply(a,b) :
             sign == "/"  ? divide(a,b) : "dont work";
     }
-console.log(operate(num1,num2,operator));
 //number buttons
 const oneButton = document.createElement("button");
 const twoButton = document.createElement("button");
@@ -45,14 +45,15 @@ const minusButton = document.createElement("button");
 const multiplyButton = document.createElement("button");
 const divideButton = document.createElement("button");
 //- classes
-const operatorButtons = [plusButton, minusButton, multiplyButton, divideButton] 
-operatorButtons.forEach(button => button.classList.add("btn", "operator"));
+
 //- text
 plusButton.textContent ="+";
 minusButton.textContent ="-";
 multiplyButton.textContent ="x";
 divideButton.textContent ="/";
 
+const operatorButtons = [plusButton, minusButton, multiplyButton, divideButton] 
+operatorButtons.forEach(button => button.classList.add("btn", "operator"));
 //clear button
 const clearButton = document.createElement("button");
 //- class & text
@@ -83,7 +84,7 @@ const calcDisplay = document.createElement("div");
 //class
 calcDisplay.classList.add("calcDisplay")
 //example text
-calcDisplay.textContent = "69";
+calcDisplay.textContent = "";
 
 const container = document.querySelector(".calculator");
 container.appendChild(calcDisplay);
@@ -131,8 +132,15 @@ container.appendChild(mainBtnContainer);
 
 numButtons.forEach(button => {
     button.addEventListener("click", () => {
-        calcDisplay.textContent = button.textContent;
+        if (num1 === "") {
+            calcDisplay.textContent += button.textContent;
+        }
+
     })
 })
-
+operatorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        operator = button.textContent;
+    });
+});
 
