@@ -33,38 +33,28 @@ const eightButton =document.createElement("button");
 const nineButton =document.createElement("button");
 const zeroButton = document.createElement("button");
 //classes
-oneButton.classList.add("btn", "num");
-twoButton.classList.add("btn", "num");
-threeButton.classList.add("btn", "num");
-fourButton.classList.add("btn", "num");
-fiveButton.classList.add("btn", "num");
-sixButton.classList.add("btn", "num");
-sevenButton.classList.add("btn", "num");
-eightButton.classList.add("btn", "num");
-nineButton.classList.add("btn", "num");
-zeroButton.classList.add("btn", "num");
+const numButtons = [zeroButton, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton];
+numButtons.forEach(button => button.classList.add("btn", "num"));
 //text
-oneButton.textContent = "1"
-twoButton.textContent = "2"
-threeButton.textContent = "3"
-fourButton.textContent = "4"
-fiveButton.textContent = "5"
-sixButton.textContent = "6"
-sevenButton.textContent = "7"
-eightButton.textContent = "8"
-nineButton.textContent = "9"
-zeroButton.textContent = "0"
+for (let i = 0; i < numButtons.length; i++) {
+    numButtons[i].textContent = `${i}`;
+}
 
 //operator buttons
 const plusButton = document.createElement("button");
 const minusButton = document.createElement("button");
 const multiplyButton = document.createElement("button");
 const divideButton = document.createElement("button");
+
 //classes
+/*
 plusButton.classList.add("btn", "operator");
 minusButton.classList.add("btn", "operator");
 multiplyButton.classList.add("btn", "operator");
 divideButton.classList.add("btn", "operator");
+*/
+const operatorButtons = [plusButton, minusButton, multiplyButton, divideButton] 
+operatorButtons.forEach(button => button.classList.add("btn", "operator"));
 //text
 plusButton.textContent ="+";
 minusButton.textContent ="-";
