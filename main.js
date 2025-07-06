@@ -129,7 +129,10 @@ mainBtnContainer.appendChild(operatorBtnContainer);
 container.appendChild(funcBtnContainer);
 container.appendChild(mainBtnContainer);
 
-
-
+numButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        calcDisplay.textContent = button.textContent;
+    })
+})
 
 
