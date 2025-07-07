@@ -205,9 +205,13 @@ equalsButton.addEventListener("click", () => {
     else if (num1 !== "" && operator !== "" && num2 !== "") {
         num1 = operate(Number(num1), Number(num2), operator);
         calcDisplay.textContent = num1;
-
         // Reset for next operation
         num2 = "";
+        shouldClearDisplay = true;
+        clickCount = 0;
+        isSecondNumber = false;
+        operator = 0;
+        
     };
 });
 delButton.addEventListener("click", () =>  {
