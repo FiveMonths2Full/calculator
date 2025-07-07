@@ -14,8 +14,11 @@ function divide (a,b) {
 let num1 = "";
 let num2 = "";
 let operator = "";
+let isSecondNumber = false;
+let clickCount = 0;
 
 function operate(a,b,sign) {
+
     return  sign == "+"  ? add(a,b) :
             sign == "-"  ? subtract(a,b) :
             sign == "*"  ? multiply(a,b) :
@@ -130,17 +133,45 @@ mainBtnContainer.appendChild(operatorBtnContainer);
 container.appendChild(funcBtnContainer);
 container.appendChild(mainBtnContainer);
 
-numButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        if (num1 === "") {
-            calcDisplay.textContent += button.textContent;
+numButtons.forEach(numButton => {
+    numButton.addEventListener("click", () => {
+        calcDisplay.textContent += numButton.textContent;
+        if (!isSecondNumber) {
+            num1 += numButton.textContent;
+        } else {
+            num2 += numButton.textContent;
+        }
+    });
+});
+
+operatorButtons.forEach(opButton => {
+    opButton.addEventListener("click", () => {
+        const pressed = opButton.textContent;
+
+        if (pressed === "-" && operator && num2 === "") {
+            // Inject negative sign for num2
+            calcDisplay.textContent = "-";
+            num2 = "-";
+            return;
         }
 
-    })
-})
-operatorButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        operator = button.textContent;
+        // Regular operator flow
+        if (num1 === "") return;
+
+        clickCount++;
+        
+        if (clickCount === 1) {
+            operator = pressed;
+            isSecondNumber = true;
+            calcDisplay.textContent = "";
+        } else if (clickCount > 1 && num2 !== "") {
+            num1 = operate(Number(num1), Number(num2), operator);
+            calcDisplay.textContent = num1;
+            num2 = "";
+            operator = pressed;
+            isSecondNumber = true;
+        }
+        
     });
 });
 
