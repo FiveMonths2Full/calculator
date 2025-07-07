@@ -1,26 +1,22 @@
 function add (a,b) {
-    let numDecimils = countDecimilPlaces(a,b);
-    return (a + b).toFixed(numDecimils);
+    return roundIfNecessary((a + b));
 };
 function subtract (a,b) {
-    let numDecimils = countDecimilPlaces(a,b); 
-    return (a - b).toFixed(numDecimils);
+    return roundIfNecessary((a - b));
 };
 function multiply (a,b) {
-    let numDecimils = countDecimilPlaces(a,b); 
-    return (a * b).toFixed(numDecimils);
+    return roundIfNecessary((a * b));
 };
 function divide (a,b) {
-    let numDecimils = countDecimilPlaces(a,b); 
-    return b !== 0 ? (a/b).toFixed(numDecimils) : undefined;
+    return b !== 0 ? roundIfNecessary((a/b)) : undefined;
 };
-function countDecimilPlaces(a, b) {
-    const getDecimals = (n) => {
-        const str = n.toString();
-        return str.includes(".") ? str.split(".")[1].length : 0;
-    };
-    return Math.min(5, Math.max(getDecimals(a), getDecimals(b)));
-};
+function roundIfNecessary(result) {
+    const resultStr = result.toString();
+    if (resultStr.includes(".") && resultStr.split(".")[1].length > 4) {
+        return Number(result.toFixed(4));
+    }
+    return result;
+}
 let num1 = "";
 let num2 = "";
 let operator = "";
