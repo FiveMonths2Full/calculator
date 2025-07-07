@@ -15,13 +15,14 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let isSecondNumber = false;
+let shouldClearDisplay = false;
 let clickCount = 0;
 
 function operate(a,b,sign) {
 
     return  sign == "+"  ? add(a,b) :
             sign == "-"  ? subtract(a,b) :
-            sign == "*"  ? multiply(a,b) :
+            sign == "x"  ? multiply(a,b) :
             sign == "/"  ? divide(a,b) : "dont work";
     }
 //number buttons
@@ -135,7 +136,16 @@ container.appendChild(mainBtnContainer);
 
 numButtons.forEach(numButton => {
     numButton.addEventListener("click", () => {
+        // Clear display if flagged
+        if (shouldClearDisplay) {
+            calcDisplay.textContent = "";
+            shouldClearDisplay = false;
+        }
+
+        // Append digit to display
         calcDisplay.textContent += numButton.textContent;
+
+        // Add digit to correct variable
         if (!isSecondNumber) {
             num1 += numButton.textContent;
         } else {
@@ -144,34 +154,48 @@ numButtons.forEach(numButton => {
     });
 });
 
+// OPERATOR BUTTON LOGIC
 operatorButtons.forEach(opButton => {
     opButton.addEventListener("click", () => {
         const pressed = opButton.textContent;
 
+        // Handle negative second number (e.g., x - or ÷ -)
         if (pressed === "-" && operator && num2 === "") {
-            // Inject negative sign for num2
             calcDisplay.textContent = "-";
             num2 = "-";
             return;
         }
 
-        // Regular operator flow
+        // Don't allow operator without a first number
         if (num1 === "") return;
 
         clickCount++;
-        
+
         if (clickCount === 1) {
+            // First operator click
             operator = pressed;
             isSecondNumber = true;
-            calcDisplay.textContent = "";
+            shouldClearDisplay = true;
         } else if (clickCount > 1 && num2 !== "") {
+            // Chaining operations
             num1 = operate(Number(num1), Number(num2), operator);
             calcDisplay.textContent = num1;
+
+            // Reset for next operation
             num2 = "";
             operator = pressed;
             isSecondNumber = true;
+            clickCount = 1;
+            shouldClearDisplay = true;
         }
-        
+
+        // Debug logs
+        console.log("num1:", num1);
+        console.log("num2:", num2);
+        console.log("operator:", operator);
+        console.log("clickCount:", clickCount);
+        console.log("isSecondNumber:", isSecondNumber);
     });
 });
+
 
