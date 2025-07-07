@@ -113,11 +113,8 @@ numBtnContainer.appendChild(sixButton);
 numBtnContainer.appendChild(sevenButton);
 numBtnContainer.appendChild(eightButton);
 numBtnContainer.appendChild(nineButton);
-//
 numBtnContainer.appendChild(dotButton);
-//
 numBtnContainer.appendChild(zeroButton);
-//
 numBtnContainer.appendChild(delButton);
 //operators
 const operatorBtnContainer = document.createElement("div");
@@ -149,7 +146,6 @@ numButtons.forEach(numButton => {
             calcDisplay.textContent = "";
             shouldClearDisplay = false;
         };
-
         // Append digit to display
         if (deleteNumber) {
             deleteNumber = false;
@@ -158,7 +154,6 @@ numButtons.forEach(numButton => {
         else {
             calcDisplay.textContent += numButton.textContent;
         };
-
         // Add digit to correct variable
         if (!isSecondNumber) {
             num1 += numButton.textContent;
@@ -167,24 +162,19 @@ numButtons.forEach(numButton => {
         }
     });
 });
-
 // OPERATOR BUTTON LOGIC
 operatorButtons.forEach(opButton => {
     opButton.addEventListener("click", () => {
         const pressed = opButton.textContent;
-
         // Handle negative second number (e.g., x - or ÷ -)
         if (pressed === "-" && operator && num2 === "") {
             calcDisplay.textContent = "-";
             num2 = "-";
             return;
         };
-
         // Don't allow operator without a first number
         if (num1 === "") return;
-
         clickCount++;
-
         if (clickCount === 1) {
             // First operator click
             operator = pressed;
@@ -194,7 +184,6 @@ operatorButtons.forEach(opButton => {
             // Chaining operations
             num1 = operate(Number(num1), Number(num2), operator);
             calcDisplay.textContent = num1;
-
             // Reset for next operation
             num2 = "";
             operator = pressed;
@@ -202,7 +191,6 @@ operatorButtons.forEach(opButton => {
             clickCount = 1;
             shouldClearDisplay = true;
         };
-
         // Debug logs
         console.log("num1:", num1);
         console.log("num2:", num2);
