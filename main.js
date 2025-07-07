@@ -32,7 +32,7 @@ function operate(a,b,sign) {
             sign == "-"  ? subtract(a,b) :
             sign == "x"  ? multiply(a,b) :
             sign == "/"  ? divide(a,b) : "dont work";
-    }
+    };
 //number buttons
 const oneButton = document.createElement("button");
 const twoButton = document.createElement("button");
@@ -64,7 +64,7 @@ minusButton.textContent ="-";
 multiplyButton.textContent ="x";
 divideButton.textContent ="/";
 
-const operatorButtons = [plusButton, minusButton, multiplyButton, divideButton] 
+const operatorButtons = [plusButton, minusButton, multiplyButton, divideButton];
 operatorButtons.forEach(button => button.classList.add("btn", "operator"));
 //clear button
 const clearButton = document.createElement("button");
@@ -94,7 +94,7 @@ equalsButton.textContent = "=";
 //number display
 const calcDisplay = document.createElement("div");
 //class
-calcDisplay.classList.add("calcDisplay")
+calcDisplay.classList.add("calcDisplay");
 //example text
 calcDisplay.textContent = "";
 
@@ -130,8 +130,8 @@ operatorBtnContainer.appendChild(divideButton);
 
 const funcBtnContainer = document.createElement("div");
 funcBtnContainer.classList.add("funcBtnContainer");
-funcBtnContainer.appendChild(clearButton)
-funcBtnContainer.appendChild(equalsButton)
+funcBtnContainer.appendChild(clearButton);
+funcBtnContainer.appendChild(equalsButton);
 
 const mainBtnContainer = document.createElement("div");
 mainBtnContainer.classList.add("mainBtnContainer");
@@ -148,7 +148,7 @@ numButtons.forEach(numButton => {
         if (shouldClearDisplay) {
             calcDisplay.textContent = "";
             shouldClearDisplay = false;
-        }
+        };
 
         // Append digit to display
         if (deleteNumber) {
@@ -157,7 +157,7 @@ numButtons.forEach(numButton => {
         }
         else {
             calcDisplay.textContent += numButton.textContent;
-        }
+        };
 
         // Add digit to correct variable
         if (!isSecondNumber) {
@@ -178,7 +178,7 @@ operatorButtons.forEach(opButton => {
             calcDisplay.textContent = "-";
             num2 = "-";
             return;
-        }
+        };
 
         // Don't allow operator without a first number
         if (num1 === "") return;
@@ -201,7 +201,7 @@ operatorButtons.forEach(opButton => {
             isSecondNumber = true;
             clickCount = 1;
             shouldClearDisplay = true;
-        }
+        };
 
         // Debug logs
         console.log("num1:", num1);
@@ -220,8 +220,8 @@ equalsButton.addEventListener("click", () => {
 
         // Reset for next operation
         num2 = "";
-    }
-})
+    };
+});
 delButton.addEventListener("click", () =>  {
     if (calcDisplay.textContent === "") return;
     else if(calcDisplay.textContent !== "") {
@@ -231,13 +231,12 @@ delButton.addEventListener("click", () =>  {
         deleteNumber = true;
         if (!isSecondNumber) {
             num1 = num1.slice(0, -1);
-        } 
+        }
         else {
             num2 = num2.slice(0, -1);
-        }
-
-    }
-})
+        };
+    };
+});
 clearButton.addEventListener("click", () => {
     num1 = "";
     num2 = "";
@@ -247,7 +246,7 @@ clearButton.addEventListener("click", () => {
     isSecondNumber = false;
     shouldClearDisplay = false;
     deleteNumber = false;
-})
+});
 dotButton.addEventListener("click", () => {
     if (calcDisplay.textContent === "") return;
     else if (calcDisplay.textContent !== "") {
@@ -268,7 +267,3 @@ dotButton.addEventListener("click", () => {
         };
     };
 }});
-
-
-
-
