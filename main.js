@@ -1,14 +1,14 @@
 function add (a,b) {
-    return a + b;
+    return (a + b).toFixed(4);
 }
 function subtract (a,b) {
-    return a - b;
+    return (a - b).toFixed(4);
 }
 function multiply (a,b) {
-    return a * b;
+    return (a * b).toFixed(4);
 }
 function divide (a,b) {
-    b !== 0 ? a/b : undefined;
+    b !== 0 ? (a/b).toFixed(4) : undefined;
 }
 
 let num1 = "";
@@ -17,6 +17,7 @@ let operator = "";
 let isSecondNumber = false;
 let shouldClearDisplay = false;
 let deleteNumber = false;
+let addDot = false;
 let clickCount = 0;
 
 function operate(a,b,sign) {
@@ -151,7 +152,7 @@ numButtons.forEach(numButton => {
         else {
             calcDisplay.textContent += numButton.textContent;
         }
-        
+
         // Add digit to correct variable
         if (!isSecondNumber) {
             num1 += numButton.textContent;
@@ -241,4 +242,27 @@ clearButton.addEventListener("click", () => {
     shouldClearDisplay = false;
     deleteNumber = false;
 })
+dotButton.addEventListener("click", () => {
+    if (calcDisplay.textContent === "") return;
+    else if (calcDisplay.textContent !== "") {
+        let arrCalcDisplay = calcDisplay.textContent.split("");
+        if (arrCalcDisplay.includes(".")) {
+            return;
+        }
+        else if(!arrCalcDisplay.includes(".")) {
+            arrCalcDisplay.push(".")
+            calcDisplay.textContent = arrCalcDisplay.join("");
+            addDot = true;
+             if (!isSecondNumber) {
+            num1 = num1 + ".";
+            } 
+            else {
+            num2 = num2 + ".";
+            
+        };
+    };
+}});
+
+
+
 
