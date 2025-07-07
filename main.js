@@ -16,6 +16,7 @@ let num2 = "";
 let operator = "";
 let isSecondNumber = false;
 let shouldClearDisplay = false;
+let deleteNumber = false;
 let clickCount = 0;
 
 function operate(a,b,sign) {
@@ -143,8 +144,14 @@ numButtons.forEach(numButton => {
         }
 
         // Append digit to display
-        calcDisplay.textContent += numButton.textContent;
-
+        if (deleteNumber) {
+            deleteNumber = false;
+            return;
+        }
+        else {
+            calcDisplay.textContent += numButton.textContent;
+        }
+        
         // Add digit to correct variable
         if (!isSecondNumber) {
             num1 += numButton.textContent;
@@ -198,4 +205,40 @@ operatorButtons.forEach(opButton => {
     });
 });
 
+equalsButton.addEventListener("click", () => {
+    if (num1 === "" || num2 === "") return;
+    else if (num1 !== "" && operator !== "" && num2 !== "") {
+        num1 = operate(Number(num1), Number(num2), operator);
+        calcDisplay.textContent = num1;
+
+        // Reset for next operation
+        num2 = "";
+    }
+})
+delButton.addEventListener("click", () =>  {
+    if (calcDisplay.textContent === "") return;
+    else if(calcDisplay.textContent !== "") {
+        let arrCalcDisplay = calcDisplay.textContent.split("");
+        arrCalcDisplay.pop();
+        calcDisplay.textContent = arrCalcDisplay.join("");
+        deleteNumber = true;
+        if (!isSecondNumber) {
+            num1 = num1.slice(0, -1);
+        } 
+        else {
+            num2 = num2.slice(0, -1);
+        }
+
+    }
+})
+clearButton.addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    calcDisplay.textContent = "";
+    clickCount = 0;
+    isSecondNumber = false;
+    shouldClearDisplay = false;
+    deleteNumber = false;
+})
 
